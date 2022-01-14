@@ -58,8 +58,8 @@ void	deal_key(int key, t_data *data)
 		data->para = (data->para == 1) * 0 + (data->para == 0) * 1;
 	}
 //	ft_bzero(data->img_ptr, sizeof(int) * WIN_WIDTH * WIN_HEIGHT);
-	ft_bzero(data->addr, WIN_WIDTH * WIN_HEIGHT * (data->bpp / 8));
-//	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+//	ft_bzero(data->addr, WIN_WIDTH * WIN_HEIGHT * (data->bpp / 8));
+	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 	ft_draw_map(data);
 }
 
@@ -146,7 +146,7 @@ int	ft_draw_map(t_data *data)
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	data->img_ptr = mlx_new_image(data->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	data->addr = mlx_get_data_addr(data->img_ptr, &data->bpp, &data->line_length, &data->endian);
-	ft_bzero(data->addr, WIN_WIDTH * WIN_HEIGHT * (data->bpp / 8));
+//	ft_bzero(data->addr, WIN_WIDTH * WIN_HEIGHT * (data->bpp / 8));
 	ft_draw(*data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
 //	mlx_destroy_image(data->mlx_ptr, data->img_ptr);

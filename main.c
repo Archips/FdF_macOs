@@ -6,7 +6,7 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 14:49:51 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 00:08:32 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/14 10:40:37 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int ft_close(t_data *data)
 	}
 	free(data->map);
 	data->map = NULL;
-ft_bzero(data->addr, WIN_WIDTH * WIN_HEIGHT * (data->bpp / 8));
+	ft_bzero(data->addr, WIN_WIDTH * WIN_HEIGHT * (data->bpp / 8));
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	free(data->mlx_ptr);
 //	free(data);

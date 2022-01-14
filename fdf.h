@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:29:13 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 09:54:58 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/14 10:26:20 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <math.h>
-#include "/usr/local/include/mlx.h"
+#include "minilibx/mlx.h"
 #include "libft/libft.h"
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 1
+#endif
 
 # define WIN_WIDTH 1280
 # define WIN_HEIGHT 800
