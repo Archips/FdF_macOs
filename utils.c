@@ -6,7 +6,7 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 20:32:55 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/10 12:10:40 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/14 15:50:25 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,57 +24,37 @@ int	ft_open(char *file)
 	}
 	return (fd);
 }
-
-void	ft_free_map(char ***map, t_data *data, int i)
-{
-	int index;
-	int j;
-
-	index = 0;
-	while (index <= i)
-	{
-		j = 0;
-		while (j < data->width)
-		{
-			free(map[index][j]);
-			j ++;
-		}
-		free(map[index]);
-		i ++;
-	}
-	free(map);
-}
 /*
-void	*ft_free_map(char ***map, t_data &data, int index)
+void	ft_free_map(char ***map, t_data *data, int max)
 {
 	int	i;
 	int	j;
 
-	i = index;
-	while (j >= 0)
+	i = 0;
+	while (i <= max)
 	{
-		i = data->width - 1;
-		while (i >= 0)
+		j = 0;
+		while (j < data->width)
 		{
-			free(data->map[j][i]);
-			i --;
+			free(map[i][j]);
+			j ++;
 		}
-		free(data->map[j]);
-		j --;
+		free(map[i]);
+		i ++;
 	}
-	free(data->map);
-	data->map = NULL;
+	free(map);
+	map = NULL;
 }*/
 
 int	ft_hex_to_int(char c, char *hex)
 {
 	int	i;
-	
+
 	i = 0;
 	while (hex[i])
 	{
 		if (ft_toupper(c) == hex[i])
-			break;
+			break ;
 		i ++;
 	}
 	return (i);
@@ -103,7 +83,7 @@ int	ft_min(int a, int b)
 		return (b);
 }
 
-int	ft_abs(int	a)
+int	ft_abs(int a)
 {
-	return (((a <= 0) * - a) + ((a > 0) * a));
+	return (((a <= 0) * -a) + ((a > 0) * a));
 }

@@ -6,7 +6,7 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 20:58:12 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/13 23:01:10 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/14 15:42:33 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_rotate_x(t_point *point, t_data data)
 
 	temp_y = point->y;
 	point->y = temp_y * cos(data.alpha) + point->z * sin(data.alpha);
-	point->z = - temp_y * sin(data.alpha) + point->z * cos(data.alpha);
+	point->z = -temp_y * sin(data.alpha) + point->z * cos(data.alpha);
 }
 
 void	ft_rotate_y(t_point *point, t_data data)
@@ -38,7 +38,7 @@ void	ft_rotate_y(t_point *point, t_data data)
 
 	temp_x = point->x;
 	point->x = temp_x * cos(data.beta) + point->z * sin(data.beta);
-	point->z = - temp_x * sin(data.beta) + point->z * cos(data.beta);
+	point->z = -temp_x * sin(data.beta) + point->z * cos(data.beta);
 }
 
 void	ft_rotate_z(t_point *point, t_data data)
@@ -68,4 +68,3 @@ t_point	ft_project(t_point *p, t_data data)
 	p->y = p->y + data.y_offset;
 	return (*p);
 }
-
