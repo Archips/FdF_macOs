@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:29:13 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:55:46 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/14 16:11:17 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@
 
 # define WIDTH 2000
 # define HEIGHT 1500
-# define COLOR_1		0x2B9DA2
-# define COLOR_2	0x2BD1A2
-# define COLOR_3		0xFF52A8
-# define COLOR_4		0xFFE504
-# define COLOR_5		0xFEA604
+# define COLOR_1		0x51578f
+# define COLOR_2	0x3B5f8A
+# define COLOR_3		0x60839A
+# define COLOR_4		0xBF7B4B
+# define COLOR_5		0xFF8000
 
 typedef struct s_data
 {
