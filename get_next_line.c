@@ -6,11 +6,11 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 09:58:44 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 15:37:34 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/15 15:57:55 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "fdf.h"
 
 char	*ft_update_temp(char *temp)
 {
@@ -46,7 +46,7 @@ char	*ft_get_line(char *temp)
 
 char	*get_next_line(int fd)
 {
-	static char	*temp[1024];
+	static char	*temp = NULL;
 	char		*line;
 	char		*buf;
 	int			ret;
@@ -57,18 +57,47 @@ char	*get_next_line(int fd)
 	if (!buf)
 		return (NULL);
 	ret = 1;
-	while (ret && !ft_is_nl(temp[fd]))
+	while (ret && !ft_is_nl(temp))
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret == -1)
 			return (free(buf), NULL);
 		buf[ret] = '\0';
-		temp[fd] = ft_strjoin_free(temp[fd], buf);
+		temp = ft_strjoin_free(temp, buf);
 	}
 	free(buf);
-	if (!temp[fd])
+	if (!temp)
 		return (NULL);
-	line = ft_get_line(temp[fd]);
-	temp[fd] = ft_update_temp(temp[fd]);
+	line = ft_get_line(temp);
+	temp = ft_update_temp(temp);
+	return (line);
+}
+
+char	*gnl(int fd, int width)
+{
+	static char	*temp = NULL;
+	char		*line;
+	char		*buf;
+	int			ret;
+
+	if (fd < 0)
+		return (NULL);
+	buf = (char *)malloc(sizeof(char) * (width + 1));
+	if (!buf)
+		return (NULL);
+	ret = 1;
+	while (ret && !ft_is_nl(temp))
+	{
+		ret = read(fd, buf, width);
+		if (ret == -1)
+			return (free(buf), NULL);
+		buf[ret] = '\0';
+		temp = ft_strjoin_free(temp, buf);
+	}
+	free(buf);
+	if (!temp)
+		return (NULL);
+	line = ft_get_line(temp);
+	temp = ft_update_temp(temp);
 	return (line);
 }

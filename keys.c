@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 11:27:22 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:36:22 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/15 13:07:32 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ void	ft_deal_key(int key, t_data *data)
 		ft_change_view(data);
 	if (key == 15)
 		ft_reset_map(data);
+	if (key == 8)
+		ft_change_color(data);
+//	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+//	ft_draw_map(data);
+//	ft_init_menu(data, file);
+
 }
 
 int	handle_no_event(void *data)

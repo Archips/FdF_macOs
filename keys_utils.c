@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:10:38 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:37:47 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/15 13:06:04 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	ft_rotate(int key, t_data *data)
 void	ft_change_view(t_data *data)
 {
 	data->iso = (data->iso == 1) * 0 + (data->iso == 0) * 1;
-	data->para = (data->para == 1) * 0 + (data->para == 0) * 1;
 	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 	ft_draw_map(data);
 	ft_init_menu(data);

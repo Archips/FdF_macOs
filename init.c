@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:26:40 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:59:27 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/15 16:02:23 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_init_struct(t_data *data, char *file)
 {
 	data->width = ft_get_width(file);
-	data->height = ft_get_height(file);
+	data->height = ft_get_height(file, data->width);
 	data->x_offset = WIDTH / 2;
 	data->y_offset = (HEIGHT + data->height * data->scale) / 2;
 	data->altitude = 0.1;
 	data->scale = ft_min(WIDTH / data->width / 2, HEIGHT / data->height / 2);
 	data->iso = 1;
-	data->para = 0;
+	data->color = 1;
 	data->alpha = 0;
 	data->beta = 0;
 	data->gamma = 0;
@@ -29,9 +29,13 @@ void	ft_init_struct(t_data *data, char *file)
 	data->min_map = 2147483647;
 	data->max_map = -2147483648;
 	data->map = ft_read(file, data);
-	data->name = ft_title(file);
 	data->mlx_ptr = mlx_init();
-	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, data->name);
+	if (!data->mlx_ptr)
+		ft_exit(6);
+	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "-FDF-");
+	if (!data->win_ptr)
+		ft_exit(7);
+	data->name = file;
 }
 
 void	ft_reset_map(t_data *data)
@@ -42,7 +46,7 @@ void	ft_reset_map(t_data *data)
 	data->altitude = 0.1;
 	data->scale = ft_min(WIDTH / data->width / 2, HEIGHT / data->height / 2);
 	data->iso = 1;
-	data->para = 0;
+	data->color = 1;
 	data->alpha = 0;
 	data->beta = 0;
 	data->gamma = 0;
@@ -72,6 +76,11 @@ t_point	ft_init_point(int x, int y, t_data data)
 
 void	ft_init_menu(t_data *data)
 {
+	char	*name;
+	
+	name = ft_get_name(data);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 10,
+		0xFFFFFF, name);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 30,
 		0xFFFFFF, "move : [w s a d]");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 50,
@@ -87,7 +96,10 @@ void	ft_init_menu(t_data *data)
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 150,
 		0xFFFFFF, "change view : [space]");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 170,
-		0xFFFFFF, "reset map : [r]");
+		0xFFFFFF, "change color : [c]");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 190,
+		0xFFFFFF, "reset map : [r]");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 210,
 		0xFFFFFF, "exit : [esc]");
+	free(name);
 }

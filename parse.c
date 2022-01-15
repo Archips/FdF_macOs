@@ -6,13 +6,13 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 21:14:11 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:48:37 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/15 16:02:41 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	ft_get_height(char *file)
+int	ft_get_height(char *file, int width)
 {
 	int		fd;
 	int		height;
@@ -20,32 +20,18 @@ int	ft_get_height(char *file)
 
 	height = 0;
 	fd = ft_open(file);
-	line = get_next_line(fd);
+	line = gnl(fd, width);
 	while (line)
 	{
 		free(line);
 		height ++;
-		line = get_next_line(fd);
+		line = gnl(fd, width);
 	}
 	free(line);
-	close(fd);
+	if (close(fd) == -1)
+		ft_exit(2);
 	return (height);
 }
-/*
-void	ft_free_tab(char **tab)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i ++;
-	}
-	free(tab);
-	tab = NULL;
-}*/
 
 int	ft_get_width(char *file)
 {
@@ -62,7 +48,8 @@ int	ft_get_width(char *file)
 	while (tab[i])
 		i ++;
 	ft_free_tab(tab);
-	close(fd);
+	if (close(fd) == -1)
+		ft_exit(2);
 	return (i);
 }
 
@@ -92,24 +79,22 @@ char	***ft_read(char *file, t_data *data)
 	int		i;
 	char	***map;
 
-	if (data->height < 1)
-	{
-		ft_putstr_fd("Invalid height of map", 2);
-		exit(0);
-	}
+	if (data->height < 2 || data->width < 2)
+		ft_exit(4);
 	map = (char ***)malloc(sizeof(char **) * (data->height));
 	if (!map)
-		return (NULL);
+		return (ft_exit(5),NULL);
 	i = 0;
 	fd = ft_open(file);
 	while (i < data->height)
 	{	
 		map[i] = (char **)malloc(sizeof(char *) * (data->width));
 		if (!map[i])
-			return (ft_free_map(map, data, i), NULL);
-		ft_fill(map, get_next_line(fd), i, data);
+			return (ft_free_map(map, data, i), ft_exit(5), NULL);
+		ft_fill(map, gnl(fd, data->width), i, data);
 		i ++;
 	}
-	close(fd);
+	if (close(fd) == -1)
+		ft_exit(2);
 	return (map);
 }

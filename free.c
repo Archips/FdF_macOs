@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:44:28 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:49:57 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/15 13:45:16 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_free_tab(char **tab)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (tab[i])
@@ -33,7 +32,7 @@ void	ft_free_map(char ***map, t_data *data, int max)
 	int	j;
 
 	i = 0;
-	while (i <= max)
+	while (i < max)
 	{
 		j = 0;
 		while (j < data->width)

@@ -6,12 +6,16 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:04:23 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/14 15:51:16 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/15 15:41:28 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+#ifndef	BUFFER_SIZE
+# define BUFFER_SIZE 1024
+#endif
 
 # include <stdlib.h>
 # include <unistd.h>
