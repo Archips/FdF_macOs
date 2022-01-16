@@ -6,14 +6,13 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:29:13 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 16:02:38 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/16 17:23:54 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -21,8 +20,7 @@
 # include <string.h>
 # include <math.h>
 # include "/usr/local/include/mlx.h"
-# include "libft/libft.h"
-//# include "gnl/get_next_line.h"
+# include "../libft/libft.h"
 
 # define BUFFER_SIZE 1
 
@@ -48,7 +46,6 @@
 - map's height and width must both be greater than one"
 # define ERR_5	"Failed to allocate memory"
 # define ERR_6	"Failed to init the minilibx"
-# define ERR_7	"Failed to init the window"
 
 typedef struct s_data
 {
@@ -61,7 +58,6 @@ typedef struct s_data
 	int		endian;
 	double	altitude;
 	int		iso;
-//	int		para;
 	int		color;
 	double	beta;
 	double	gamma;
@@ -98,7 +94,7 @@ char	*get_next_line(int fd);
 char	*gnl(int fd, int width);
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	draw_line(t_data data, t_point begin, t_point end);
+void	draw_line(t_data *data, t_point begin, t_point end);
 void	ft_deal_key(int key, t_data *data);
 void	ft_offset(int key, t_data *data);
 void	ft_altitude(int key, t_data *data);
@@ -117,9 +113,9 @@ int		ft_close(t_data *data);
 int		ft_get_height(char *file, int width);
 int		ft_atoi_hex(char *hex);
 void	ft_init_struct(t_data *data, char *file);
-t_point	ft_project(t_point *p, t_data data);
-void	ft_draw(t_data data);
-t_point	ft_init_point(int x, int y, t_data data);
+t_point	ft_project(t_point *p, t_data *data);
+void	ft_draw(t_data *data);
+t_point	ft_init_point(int x, int y, t_data *data);
 int		ft_draw_map(t_data *data);
 int		ft_abs(int a);
 double	ft_percent(int min, int max, int current);

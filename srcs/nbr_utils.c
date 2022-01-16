@@ -6,11 +6,11 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 11:06:41 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 11:15:19 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/16 17:46:47 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 int	ft_hex_to_int(char c, char *hex)
 {

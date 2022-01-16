@@ -6,11 +6,11 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 21:14:11 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 16:02:41 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/16 17:46:55 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 int	ft_get_height(char *file, int width)
 {

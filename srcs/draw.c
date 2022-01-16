@@ -11,7 +11,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -21,7 +21,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *) dst = color;
 }
 
-void	draw_line(t_data data, t_point begin, t_point end)
+void	draw_line(t_data *data, t_point begin, t_point end)
 {
 	t_point	d;
 	t_point	p;
@@ -37,7 +37,7 @@ void	draw_line(t_data data, t_point begin, t_point end)
 	while (pixels)
 	{
 		if (p.x >= 0 && p.x < WIDTH && p.y >= 0 && p.y < HEIGHT)
-			my_mlx_pixel_put(&data, p.x, p.y, ft_get_color(begin, end, p, d));
+			my_mlx_pixel_put(data, p.x, p.y, ft_get_color(begin, end, p, d));
 		if (begin.x < end.x)
 			p.x += d.x;
 		else
@@ -50,7 +50,7 @@ void	draw_line(t_data data, t_point begin, t_point end)
 	}
 }
 
-void	ft_draw(t_data data)
+void	ft_draw(t_data *data)
 {
 	int		x;
 	int		y;
@@ -58,18 +58,18 @@ void	ft_draw(t_data data)
 	t_point	p2;
 
 	y = -1;
-	while (++ y < data.height)
+	while (++ y < data->height)
 	{
 		x = -1;
-		while (++ x < data.width)
+		while (++ x < data->width)
 		{
-			if (x < data.width - 1)
+			if (x < data->width - 1)
 			{	
 				p1 = ft_init_point(x, y, data);
 				p2 = ft_init_point(x + 1, y, data);
 				draw_line(data, ft_project(&p1, data), ft_project(&p2, data));
 			}
-			if (y < data.height - 1)
+			if (y < data->height - 1)
 			{
 				p1 = ft_init_point(x, y, data);
 				p2 = ft_init_point(x, y + 1, data);
@@ -85,7 +85,7 @@ int	ft_draw_map(t_data *data)
 	data->img_ptr = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
 	data->addr = mlx_get_data_addr(data->img_ptr,
 			&data->bpp, &data->line_length, &data->endian);
-	ft_draw(*data);
+	ft_draw(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
 	return (0);
 }

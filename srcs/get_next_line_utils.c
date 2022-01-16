@@ -6,11 +6,11 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 14:58:12 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 15:46:15 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/16 17:45:54 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 size_t	ft_getlen(const char *s)
 {

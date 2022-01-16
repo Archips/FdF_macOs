@@ -6,11 +6,11 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 20:32:55 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 15:04:31 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/16 17:47:13 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 int	ft_open(char *file)
 {
@@ -45,9 +45,8 @@ void	ft_exit(int error)
 		ft_putendl_fd(ERR_5, 2);
 	else if (error == 6)
 		ft_putendl_fd(ERR_6, 2);
-	else if (error == 7)
-		ft_putendl_fd(ERR_7, 2);
 	ft_putendl_fd("exit..", 2);
+	while (1);
 	exit(1);
 }
 
@@ -70,5 +69,6 @@ int	ft_close(t_data *data)
 	ft_free_map(data->map, data, data->height);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	free(data->mlx_ptr);
+	ft_putendl_fd("exit..", 0);
 	exit(0);
 }

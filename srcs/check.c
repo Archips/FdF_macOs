@@ -6,11 +6,11 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 21:02:47 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 15:03:19 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/16 17:44:52 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 void	ft_check_file(char *file)
 {

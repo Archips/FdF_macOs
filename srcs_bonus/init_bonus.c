@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:26:40 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 16:02:23 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/16 18:11:27 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 void	ft_init_struct(t_data *data, char *file)
 {
@@ -30,11 +30,6 @@ void	ft_init_struct(t_data *data, char *file)
 	data->max_map = -2147483648;
 	data->map = ft_read(file, data);
 	data->mlx_ptr = mlx_init();
-	if (!data->mlx_ptr)
-		ft_exit(6);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "-FDF-");
-	if (!data->win_ptr)
-		ft_exit(7);
 	data->name = file;
 }
 
@@ -56,21 +51,21 @@ void	ft_reset_map(t_data *data)
 	ft_init_menu(data);
 }
 
-t_point	ft_init_point(int x, int y, t_data data)
+t_point	ft_init_point(int x, int y, t_data *data)
 {
 	t_point	p;
 	char	*hex;
 
 	p.x = x;
 	p.y = y;
-	p.z = ft_atoi(data.map[y][x]);
-	if (ft_strchr(data.map[y][x], ','))
+	p.z = ft_atoi(data->map[y][x]);
+	if (ft_strchr(data->map[y][x], ','))
 	{
-		hex = ft_strchr(data.map[y][x], ',');
+		hex = ft_strchr(data->map[y][x], ',');
 		p.color = ft_atoi_hex(hex);
 	}
 	else
-		p.color = ft_get_z_color(&data, p);
+		p.color = ft_get_z_color(data, p);
 	return (p);
 }
 

@@ -6,11 +6,11 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 09:58:44 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/15 15:57:55 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/16 17:45:44 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 char	*ft_update_temp(char *temp)
 {
