@@ -6,13 +6,13 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 20:58:12 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/16 17:47:03 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 22:34:53 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_iso(t_point *point)
+static void	ft_iso(t_point *point)
 {
 	int	temp_x;
 	int	temp_y;
@@ -23,7 +23,7 @@ void	ft_iso(t_point *point)
 	point->y = -point->z + ((temp_x + temp_y) * sin(30 * (M_PI / 180)));
 }
 
-void	ft_rotate_x(t_point *point, t_data *data)
+static void	ft_rotate_x(t_point *point, t_data *data)
 {
 	int	temp_y;
 
@@ -32,7 +32,7 @@ void	ft_rotate_x(t_point *point, t_data *data)
 	point->z = -temp_y * sin(data->alpha) + point->z * cos(data->alpha);
 }
 
-void	ft_rotate_y(t_point *point, t_data *data)
+static void	ft_rotate_y(t_point *point, t_data *data)
 {
 	int	temp_x;
 
@@ -41,7 +41,7 @@ void	ft_rotate_y(t_point *point, t_data *data)
 	point->z = -temp_x * sin(data->beta) + point->z * cos(data->beta);
 }
 
-void	ft_rotate_z(t_point *point, t_data *data)
+static void	ft_rotate_z(t_point *point, t_data *data)
 {
 	int	temp_x;
 	int	temp_y;

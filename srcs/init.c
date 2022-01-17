@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:26:40 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 15:51:08 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 22:41:01 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ void	ft_init_struct(t_data *data, char *file)
 				HEIGHT / data->height / 2);
 	data->iso = 1;
 	data->color = 1;
-	data->alpha = 0;
-	data->beta = 0;
-	data->gamma = 0;
-	data->endian = 0;
 	data->min_map = 2147483647;
 	data->max_map = -2147483648;
 	data->map = ft_read(file, data);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 20:32:55 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 22:17:34 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:52:08 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,20 @@ void	ft_exit(int error)
 		ft_putendl_fd(ERR_6, 2);
 	ft_putendl_fd("exit..", 2);
 	exit(1);
+}
+
+char	*ft_get_name(t_data *data)
+{
+	char	*name;
+	char	*temp;
+
+	temp = ft_strdup(data->name);
+	name = ft_strrchr(temp, '/');
+	free(temp);
+	temp = ft_strtrim(name, "./fdf");
+	name = ft_strjoin("map name : ", temp);
+	free(temp);
+	return (name);
 }
 
 int	ft_close(t_data *data)

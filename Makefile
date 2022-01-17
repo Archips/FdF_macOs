@@ -15,9 +15,11 @@ SRCS = srcs/check.c \
 	   srcs/utils.c \
 
 SRCS_BONUS = srcs_bonus/color_bonus.c \
+			 srcs_bonus/keys_color_bonus.c \
 			 srcs_bonus/init_bonus.c \
 			 srcs_bonus/keys_bonus.c \
 			 srcs_bonus/keys_utils_bonus.c \
+			 srcs_bonus/utils_bonus.c \
 			 srcs/check.c \
 			 srcs/draw.c \
 			 srcs/free.c \
@@ -26,7 +28,6 @@ SRCS_BONUS = srcs_bonus/color_bonus.c \
 			 srcs/nbr_utils.c \
 			 srcs/parse.c \
 			 srcs/projection.c \
-			 srcs/utils.c \
 			 srcs_bonus/main_bonus.c \
 
 CC = gcc
@@ -34,7 +35,6 @@ NAME = fdf
 CFLAGS = -Wall -Wextra -Werror -c
 FRAMEWORKS = -framework OpenGl -framework Appkit
 RM = rm -f
-INCLUDES = includes
 OBJS = ${SRCS:.c=.o}
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 

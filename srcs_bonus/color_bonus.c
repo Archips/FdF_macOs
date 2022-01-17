@@ -6,7 +6,7 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 10:57:42 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 16:18:45 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 22:07:45 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_get_z_color(t_data *data, t_point p)
 	double	percent;
 
 	percent = ft_percent(data->min_map, data->max_map, p.z);
+	if (data->rand_color != 0)
+		return (data->rand_color);
 	if (percent < 0.2)
 		return ((data->color == 1) * COLOR_1 + (data->color == 0) * NB_1);
 	else if (percent < 0.4)
@@ -65,12 +67,4 @@ int	ft_get_color(t_point p1, t_point p2, t_point current, t_point delta)
 			(p2.color >> 8) & 0xFF, percent);
 	blue = ft_get_intensity((p1.color & 0xFF), p2.color & 0xFF, percent);
 	return ((red << 16) | (green << 8) | blue);
-}
-
-void	ft_change_color(t_data *data)
-{
-	data->color = (data->color == 1) * 0 + (data->color == 0) * 1;
-	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
-	ft_draw_map(data);
-	ft_init_menu(data);
 }

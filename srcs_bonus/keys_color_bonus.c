@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   keys_color_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 21:02:47 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 22:15:43 by athirion         ###   ########.fr       */
+/*   Created: 2022/01/17 22:03:54 by athirion          #+#    #+#             */
+/*   Updated: 2022/01/17 22:18:43 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+#include <time.h>
 
-void	ft_check_file(char *file)
+void	ft_change_color(t_data *data)
 {
-	int	ext_len;
-	int	cmp;
+		data->rand_color = 0;
+		data->color = (data->color == 1) * 0 + (data->color == 0) * 1;
+		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+		ft_draw_map(data);
+		ft_init_menu(data);
+}
 
-	if (ft_strrchr(file, '.') == NULL)
-		ft_exit(1);
-	ext_len = ft_strlen(ft_strrchr(file, '.'));
-	cmp = ft_strncmp(ft_strrchr(file, '.'), ".fdf", ext_len);
-	if (cmp != 0 || ext_len != 4)
-		ft_exit(1);
+void	ft_rand_color(t_data *data)
+{
+		srand(time(NULL));
+		data->rand_color = rand();
+		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+		ft_draw_map(data);
+		ft_init_menu(data);
 }

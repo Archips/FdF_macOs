@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:29:13 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 16:32:25 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 22:35:44 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,27 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img_ptr;
+	char	***map;
+	char	*name;
+	char	*map_name;
 	char	*addr;
 	int		bpp;
 	int		line_length;
 	int		endian;
-	double	altitude;
+	int		width;
+	int		height;
+	int		min_map;
+	int		max_map;
 	int		iso;
 	int		color;
+	int		rand_color;
+	double	altitude;
 	double	beta;
 	double	gamma;
 	double	alpha;
 	double	scale;
 	double	x_offset;
 	double	y_offset;
-	int		width;
-	int		height;
-	char	*name;
-	char	*map_name;
-	char	***map;
-	int		max_map;
-	int		min_map;
 
 }				t_data;
 
@@ -83,53 +84,68 @@ typedef struct s_point
 	int		color;
 }				t_point;
 
-size_t	ft_getlen(const char *s);
-char	*ft_substr_gnl(char *s, unsigned int start, size_t len);
-char	*ft_strjoin_free(char *s1, char *s2);
-int		ft_is_nl(char *str);
-int		ft_len_newline(char *str);
+void	ft_check_file(char *file);
+
+double	ft_percent(int min, int max, int current);
+int		ft_get_intensity(int min, int max, double percent);
+int		ft_get_z_color(t_data *data, t_point p);
+int		ft_get_color(t_point p1, t_point p2, t_point current, t_point delta);
+
+void	ft_change_color(t_data *data);
+void	ft_rand_color(t_data *data);
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	draw_line(t_data *data, t_point begin, t_point end);
+void	ft_draw(t_data *data);
+int		ft_draw_map(t_data *data);
+
+void	ft_free_tab(char **tab);
+void	ft_free_map(char ***map, t_data *data, int max);
 
 char	*ft_update_temp(char *temp);
 char	*ft_get_line(char *temp);
 char	*get_next_line(int fd);
 char	*gnl(int fd, int width);
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	draw_line(t_data *data, t_point begin, t_point end);
+size_t	ft_getlen(const char *s);
+int		ft_len_newline(char *str);
+int		ft_is_nl(char *str);
+char	*ft_substr_gnl(char *s, unsigned int start, size_t len);
+char	*ft_strjoin_free(char *s1, char *s2);
+
+void	ft_init_struct(t_data *data, char *file);
+t_point	ft_init_point(int x, int y, t_data *data);
+
+void	ft_reset_map(t_data *data);
+void	ft_init_menu(t_data *data);
+
 void	ft_deal_key(int key, t_data *data);
+
+int		handle_no_event(void *data);
+
 void	ft_offset(int key, t_data *data);
 void	ft_altitude(int key, t_data *data);
 void	ft_scale(int key, t_data *data);
 void	ft_rotate(int key, t_data *data);
 void	ft_change_view(t_data *data);
-void	ft_reset_map(t_data *data);
-void	ft_init_menu(t_data *data);
-char	***ft_read(char	*file, t_data *data);
-void	ft_fill(char ***map, char *str, int i, t_data *data);
-void	ft_free_tab(char **tab);
-void	ft_free_map(char ***map, t_data *data, int max);
-int		ft_get_width(char *file);
-int		ft_open(char *file);
-int		ft_close(t_data *data);
-int		ft_get_height(char *file, int width);
+
 int		ft_atoi_hex(char *hex);
-void	ft_init_struct(t_data *data, char *file);
-t_point	ft_project(t_point *p, t_data *data);
-void	ft_draw(t_data *data);
-t_point	ft_init_point(int x, int y, t_data *data);
-int		ft_draw_map(t_data *data);
-int		ft_abs(int a);
-double	ft_percent(int min, int max, int current);
-int		ft_get_intensity(int min, int max, double percent);
-double	ft_get_percent(t_point p1, t_point p2, t_point current);
-int		ft_get_z_color(t_data *data, t_point p);
-int		ft_get_color(t_point p1, t_point p2, t_point current, t_point delta);
-void	ft_change_color(t_data *data);
 int		ft_min(int a, int b);
-int		handle_no_event(void *data);
-char	*ft_title(char *map_name);
-void	ft_check_file(char *file);
+int		ft_abs(int a);
+
+int		ft_get_height(char *file, int width);
+int		ft_get_width(char *file);
+void	ft_fill(char ***map, char *str, int i, t_data *data);
+char	***ft_read(char	*file, t_data *data);
+
+t_point	ft_project(t_point *p, t_data *data);
+
+int		ft_open(char *file);
 void	ft_exit(int error);
+int		ft_close(t_data *data);
+
 char	*ft_get_name(t_data *data);
+//double	ft_get_percent(t_point p1, t_point p2, t_point current);
+//char	*ft_title(char *map_name);
 
 #endif
