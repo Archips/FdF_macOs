@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:44:28 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/16 17:45:33 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:04:54 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ void	ft_free_map(char ***map, t_data *data, int max)
 		while (j < data->width)
 		{
 			free(map[i][j]);
+			map[i][j] = NULL;
 			j ++;
 		}
 		free(map[i]);
+		map[i] = NULL;
 		i ++;
 	}
 	free(map);

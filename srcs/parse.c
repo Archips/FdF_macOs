@@ -6,7 +6,7 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 21:14:11 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/16 17:46:55 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:41:35 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,17 @@ char	***ft_read(char *file, t_data *data)
 		ft_exit(4);
 	map = (char ***)malloc(sizeof(char **) * (data->height));
 	if (!map)
-		return (ft_exit(5),NULL);
+		return (ft_exit(5), NULL);
 	i = 0;
 	fd = ft_open(file);
 	while (i < data->height)
 	{	
 		map[i] = (char **)malloc(sizeof(char *) * (data->width));
 		if (!map[i])
-			return (ft_free_map(map, data, i), ft_exit(5), NULL);
+		{
+			ft_free_map(map, data, i);
+			ft_exit(5);
+		}
 		ft_fill(map, gnl(fd, data->width), i, data);
 		i ++;
 	}

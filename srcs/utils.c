@@ -6,7 +6,7 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 20:32:55 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/16 17:47:13 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:47:42 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	ft_exit(int error)
 	else if (error == 6)
 		ft_putendl_fd(ERR_6, 2);
 	ft_putendl_fd("exit..", 2);
-	while (1);
 	exit(1);
 }
 

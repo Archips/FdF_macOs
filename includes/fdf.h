@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:29:13 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/16 17:23:54 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:43:58 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 # define BUFFER_SIZE 1
 
-# define WIDTH		1280
-# define HEIGHT		800
+# define WIDTH		1600
+# define HEIGHT		1000
 # define COLOR_1	0x51578f
 # define COLOR_2	0x3B5f8A
 # define COLOR_3	0x60839A

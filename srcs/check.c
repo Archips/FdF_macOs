@@ -6,7 +6,7 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 21:02:47 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/16 17:44:52 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:39:23 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_check_file(char *file)
 {
 	int	ext_len;
-	int cmp;
-	
+	int	cmp;
+
 	if (ft_strrchr(file, '.') == NULL)
 		ft_exit(1);
 	ext_len = ft_strlen(ft_strrchr(file, '.'));

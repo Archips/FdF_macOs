@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:26:40 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/16 17:46:05 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:40:30 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	ft_init_struct(t_data *data, char *file)
 	data->y_offset = (HEIGHT + data->height * data->scale) / 2;
 	data->altitude = 0.40;
 	if (data->height > 400)
-	{	data->scale = 1.6;
+	{
+		data->scale = 1.6;
 		data->altitude = 1;
 	}
 	else
-		data->scale = ft_min(WIDTH / data->width / 2, HEIGHT / data->height / 2);
+		data->scale = ft_min(WIDTH / data->width / 2,
+				HEIGHT / data->height / 2);
 	data->iso = 1;
 	data->color = 1;
 	data->alpha = 0;

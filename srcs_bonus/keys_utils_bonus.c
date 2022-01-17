@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:10:38 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/16 18:11:56 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:16:47 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ void	ft_altitude(int key, t_data *data)
 void	ft_scale(int key, t_data *data)
 {
 	if (key == 27)
+	{
 		data->scale -= 1;
+		if (data->scale <= 0)
+			data->scale = 0;
+	}
 	if (key == 24)
 		data->scale += 1;
 	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
