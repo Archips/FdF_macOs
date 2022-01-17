@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:26:40 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 12:45:38 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:00:55 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ t_point	ft_init_point(int x, int y, t_data *data)
 
 void	ft_init_menu(t_data *data)
 {
-	data->name = ft_get_name(data);
+	data->map_name = ft_get_name(data);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 10,
-		0xFFFFFF, data->name);
+		0xFFFFFF, data->map_name);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 30,
 		0xFFFFFF, "move : [w s a d]");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 50,
@@ -101,5 +101,5 @@ void	ft_init_menu(t_data *data)
 		0xFFFFFF, "reset map : [r]");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 210,
 		0xFFFFFF, "exit : [esc]");
-	free(data->name);
+	free(data->map_name);
 }

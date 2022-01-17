@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:29:13 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 12:43:58 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:32:25 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_data
 	int		width;
 	int		height;
 	char	*name;
+	char	*map_name;
 	char	***map;
 	int		max_map;
 	int		min_map;
@@ -129,5 +130,6 @@ int		handle_no_event(void *data);
 char	*ft_title(char *map_name);
 void	ft_check_file(char *file);
 void	ft_exit(int error);
-char 	*ft_get_name(t_data *data);
+char	*ft_get_name(t_data *data);
+
 #endif

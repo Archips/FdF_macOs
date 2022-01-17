@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 09:58:44 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 12:39:31 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:43:35 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	*gnl(int fd, int width)
 
 	if (fd < 0)
 		return (NULL);
-	buf = (char *)malloc(sizeof(char) * (width));
+	buf = (char *)malloc(sizeof(char) * (width + 1));
 	if (!buf)
 		return (NULL);
 	ret = 1;
