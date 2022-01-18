@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:29:13 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 22:35:44 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/18 10:49:46 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,15 @@
 # define NB_4	0xBAC0C3
 # define NB_5	0xFFFFFF
 
-# define ERR_0	"Argument missing: Usage: ./fdf [path/to/map]"
-# define ERR_1	": Usage: map.[fdf]"
-# define ERR_2	"Failed to close the map"
-# define ERR_3	": Failed to open the map - This map may not exist"
+# define ERR_0	"Argument missing: Usage: ./fdf [path/to/map]\n"
+# define ERR_1	": Usage: map.[fdf]\n"
+# define ERR_2	"Failed to close the map\n"
+# define ERR_3	": Failed to open the map\n"
 # define ERR_4	"Failed to display the map:\n\
-- map's height and width must both be greater than one"
-# define ERR_5	"Failed to allocate memory"
-# define ERR_6	"Failed to init the minilibx"
+- map's height and width must both be greater than one\n"
+# define ERR_5	"Failed to allocate memory\n"
+# define ERR_6	"Failed to init the minilibx\n"
+# define EXIT	"---------------------> EXIT <---------------------"
 
 typedef struct s_data
 {
@@ -121,7 +122,7 @@ void	ft_init_menu(t_data *data);
 
 void	ft_deal_key(int key, t_data *data);
 
-int		handle_no_event(void *data);
+int		loop(void *data);
 
 void	ft_offset(int key, t_data *data);
 void	ft_altitude(int key, t_data *data);

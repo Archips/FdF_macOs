@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 11:27:22 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 22:00:56 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/18 10:49:20 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_deal_key(int key, t_data *data)
 		ft_rand_color(data);
 }
 
-int	handle_no_event(void *data)
+int	loop(void *data)
 {
 	(void)data;
 	return (0);

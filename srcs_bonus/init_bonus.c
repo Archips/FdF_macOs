@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:26:40 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 22:43:17 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/18 10:26:59 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,17 @@ void	ft_reset_map(t_data *data)
 	data->x_offset = WIDTH / 2;
 	data->y_offset = (HEIGHT + data->height * data->scale) / 2;
 	data->altitude = 0.1;
-	data->scale = ft_min(WIDTH / data->width / 2, HEIGHT / data->height / 2);
+	if (data->height > 400)
+		data->scale = 1.6;
+	else
+		data->scale = ft_min(WIDTH / data->width / 2,
+				HEIGHT / data->height / 2);
 	data->iso = 1;
 	data->color = 1;
 	data->rand_color = 0;
+	data->alpha = 0;
+	data->beta = 0;
+	data->gamma = 0;
 	mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 	ft_draw_map(data);
 	ft_init_menu(data);

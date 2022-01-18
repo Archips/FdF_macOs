@@ -6,7 +6,7 @@
 /*   By: athirion <athirion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 14:49:51 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/17 16:20:59 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/18 10:49:02 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 		data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "-FDF-");
 		ft_draw_map(&data);
 		ft_init_menu(&data);
-		mlx_loop_hook(data.mlx_ptr, handle_no_event, &data);
+		mlx_loop_hook(data.mlx_ptr, loop, &data);
 		mlx_hook(data.win_ptr, 2, 1L << 1, (void *)ft_deal_key, &data);
 		mlx_hook(data.win_ptr, 17, 1L << 17, ft_close, &data);
 		mlx_loop(data.mlx_ptr);
