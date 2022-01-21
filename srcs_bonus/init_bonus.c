@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:26:40 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/18 10:26:59 by athirion         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:34:52 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_init_struct(t_data *data, char *file)
 
 void	ft_reset_map(t_data *data)
 {
-	data->scale = 1;
+	data->scale = 0;
 	data->x_offset = WIDTH / 2;
 	data->y_offset = (HEIGHT + data->height * data->scale) / 2;
 	data->altitude = 0.1;
