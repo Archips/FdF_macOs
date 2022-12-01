@@ -6,7 +6,7 @@
 /*   By: athirion <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:29:13 by athirion          #+#    #+#             */
-/*   Updated: 2022/01/18 10:49:46 by athirion         ###   ########.fr       */
+/*   Updated: 2022/03/23 20:14:14 by athirion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <errno.h>
 # include <string.h>
 # include <math.h>
-# include "/usr/local/include/mlx.h"
-# include "../libft/libft.h"
+# include "mlx.h"
+# include "libft.h"
 
 # define BUFFER_SIZE 1
 
